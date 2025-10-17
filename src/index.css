@@ -1,0 +1,169 @@
+/* Modern UI styles for TicTacToe */
+
+:root{
+  --bg: #0f172a;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --accent: #7c3aed;
+  --accent-2: #06b6d4;
+  --win: #f59e0b;
+  --glass: rgba(255,255,255,0.03);
+}
+
+.game{
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 28px;
+  color: #e6eef8;
+  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg, #071024 0%, #071a2a 100%);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Board card */
+.game-board{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* grid container */
+.board{
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+/* row is a flex row */
+.board-row{
+  display: flex;
+}
+
+/* Square button */
+.square{
+  width: 84px;
+  height: 84px;
+  margin: 6px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  color: #e6eef8;
+  font-size: 34px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .12s ease, background .12s ease;
+  min-width: 84px;
+  user-select: none;
+}
+
+/* hover and focus */
+.square:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(7, 12, 34, 0.6);
+}
+.square:active{
+  transform: translateY(0);
+}
+.square:focus{
+  outline: 2px solid rgba(124,58,237,0.22);
+  outline-offset: 3px;
+}
+
+/* highlight winning squares */
+.highlight{
+  background: linear-gradient(90deg, rgba(245,158,11,0.14), rgba(124,58,237,0.06));
+  border: 1px solid rgba(245,158,11,0.34);
+  box-shadow: 0 10px 30px rgba(245,158,11,0.08);
+}
+
+/* Game info panel */
+.game-info{
+  width: 320px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  border-radius: 12px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 6px 20px rgba(3,8,18,0.6);
+}
+
+.status{
+  font-size: 16px;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 12px;
+}
+
+/* control button */
+.control-button{
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 12px;
+  transition: transform .08s ease, box-shadow .12s ease;
+}
+.control-button:hover{ transform: translateY(-3px); box-shadow: 0 8px 20px rgba(6,182,212,0.12); }
+.control-button:active{ transform: translateY(0); }
+
+/* moves list */
+.moves-list{
+  list-style: none;
+  padding-left: 0;
+  margin-top: 8px;
+  max-height: 360px;
+  overflow: auto;
+}
+
+.move-item{
+  margin-bottom: 8px;
+}
+
+/* move button */
+.move-button{
+  width: 100%;
+  text-align: left;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--muted);
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.move-button:hover{
+  background: rgba(255,255,255,0.03);
+  color: #e6eef8;
+}
+
+/* current move label */
+.current-move{
+  display: inline-block;
+  width: 100%;
+  padding: 8px 10px;
+  background: rgba(124,58,237,0.08);
+  border-radius: 8px;
+  color: #f8fafc;
+  font-weight: 700;
+}
+
+/* responsive */
+@media (max-width: 760px){
+  .game{
+    flex-direction: column;
+    align-items: center;
+    padding: 18px;
+  }
+  .game-info{ width: 100%; }
+  .square{ width: 64px; height: 64px; min-width:64px; font-size:26px; }
+}
